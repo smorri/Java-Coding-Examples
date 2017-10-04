@@ -24,7 +24,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * 
  * 
  * @author  Samone Morris
- * @version 1.2.0
+ * @version 1.2.1
  * @done	9/22/17
  * ========================================================================================================
  */
@@ -319,7 +319,7 @@ public class ArrayUtils{
 			length = array.length;
 		ArrayDeque<Integer> deque = new ArrayDeque <Integer>(length);
 
-		for(;i < length; i++){ deque.push( array[i] ); }
+		for(;i < length; i++){ deque.offer( array[i] ); }
 		
 		return deque;
 	}//  end createDeque(...)
@@ -429,13 +429,13 @@ public class ArrayUtils{
 		else {
 			ArrayDeque<Integer> b_deque = createDeque(arr_B);
 			int i = 0;
-			
+						
 			for(;i < a_length; i++){
 				b_deque.addLast(  b_deque.removeFirst() );
 	
 				Integer [] deque_array = b_deque.toArray( new Integer[0] );
 				
-				//System.out.println( Arrays.toString( deque_array ) );
+				System.out.println( Arrays.toString( deque_array ) );
 				
 				if( Arrays.equals( arr_A , deque_array) ){
 					System.out.println("[SUCCESS] Array B is a rotated version of Array A | " + 
